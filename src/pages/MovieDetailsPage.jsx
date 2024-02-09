@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMowiesId } from '../Api';
+import { Link, Outlet } from 'react-router-dom';
 
 export default function MoviesDetailsPage() {
   const { moviesId } = useParams();
@@ -47,6 +48,19 @@ export default function MoviesDetailsPage() {
           )}
         </div>
       )}
+      <div>
+        <h3>Additional information</h3>
+        <ul>
+          <li>
+            <Link to={'cast'}>Cast</Link>
+          </li>
+          <li>
+            {' '}
+            <Link to={'reviews'}>Reviews</Link>
+          </li>
+        </ul>
+      </div>
+      <Outlet />
     </div>
   );
 }
