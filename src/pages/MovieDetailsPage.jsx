@@ -23,8 +23,6 @@ export default function MoviesDetailsPage() {
       <h2>MoviesDetailsPage:</h2>
       {movieData && (
         <div>
-          <p>title:{movieData.title}</p>
-          <p>popularity:{movieData.popularity}</p>
           <img
             src={
               movieData.poster_path
@@ -34,6 +32,19 @@ export default function MoviesDetailsPage() {
             width={250}
             alt={movieData.title}
           />
+          <h2>{movieData.title}</h2>
+          {movieData.vote_average > 0 && (
+            <div>
+              <h3>User Score:</h3>
+              <p>{movieData.vote_average.toFixed(0) * 10}%</p>
+            </div>
+          )}
+          <h3>Overview:</h3>
+          <p> {movieData.overview}</p>
+          <h3>Genres:</h3>
+          {movieData.genres && (
+            <p>{movieData.genres.map(genre => genre.name).join(' ')}</p>
+          )}
         </div>
       )}
     </div>
