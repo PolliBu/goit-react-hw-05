@@ -6,6 +6,9 @@ export default function MoviesDetailsPage() {
   const { moviesId } = useParams();
   const [movieData, setMovieData] = useState(null);
 
+  const defaultImg =
+    'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -23,7 +26,12 @@ export default function MoviesDetailsPage() {
           <p>title:{movieData.title}</p>
           <p>popularity:{movieData.popularity}</p>
           <img
-            src={`https://image.tmdb.org/t/p/w500/${movieData.poster_path}`}
+            src={
+              movieData.poster_path
+                ? `https://image.tmdb.org/t/p/w500/${movieData.poster_path}`
+                : defaultImg
+            }
+            width={250}
             alt={movieData.title}
           />
         </div>
