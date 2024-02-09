@@ -1,21 +1,22 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// export const fetchData = async query => {
-//   const url =
-//     '<https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1>';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3';
+const API_KEY = 'aa67eebd48ac511a9341a7e51636c98a';
 
-//   const options = {
-//     headers: {
-//       Authorization: 'Bearer aa67eebd48ac511a9341a7e51636c98a',
-//     },
-//   };
+export const getMowies = async ({ abortController }) => {
+  const response = await axios.get(
+    `/trending/movie/day?language=en-US&&api_key=${API_KEY}`,
+    {
+      signal: abortController.signal,
+    },
+  );
 
-//   try {
-//     const response = await axios.get(url, options);
-//     console.log(response.data);
-//     return response.data;
-//   } catch (error) {
-//     console.error("This didn't work.");
-//     throw error;
-//   }
-// };
+  return response.data;
+};
+export const getMowiesId = async mowiesId => {
+  const response = await axios.get(
+    `/movie/${mowiesId}?language=en-US&&api_key=${API_KEY}`,
+  );
+
+  return response.data;
+};
