@@ -3,7 +3,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 const API_KEY = 'aa67eebd48ac511a9341a7e51636c98a';
 
-export const getMowies = async ({ abortController }) => {
+export const getMovies = async ({ abortController }) => {
   const response = await axios.get(
     `/trending/movie/day?language=en-US&&api_key=${API_KEY}`,
     {
@@ -13,25 +13,25 @@ export const getMowies = async ({ abortController }) => {
 
   return response.data;
 };
-export const getMowiesId = async mowiesId => {
+export const getMoviesId = async moviesId => {
   const response = await axios.get(
-    `/movie/${mowiesId}?language=en-US&&api_key=${API_KEY}`,
+    `/movie/${moviesId}?language=en-US&&api_key=${API_KEY}`,
   );
 
   return response.data;
 };
 
-export const getMowiesCast = async mowiesId => {
+export const getMoviesCast = async moviesId => {
   const response = await axios.get(
-    `/movie/${mowiesId}/credits?language=en-US&&api_key=${API_KEY}`,
+    `/movie/${moviesId}/credits?language=en-US&&api_key=${API_KEY}`,
   );
 
   return response.data.cast;
 };
 
-export const getMowiesReviews = async mowiesId => {
+export const getMoviesReviews = async moviesId => {
   const response = await axios.get(
-    `/movie/${mowiesId}/reviews?language=en-US&page=1&api_key=${API_KEY}`,
+    `/movie/${moviesId}/reviews?language=en-US&page=1&api_key=${API_KEY}`,
   );
 
   return response.data.results;

@@ -1,4 +1,4 @@
-import { getMowiesCast } from '../Api';
+import { getMoviesCast } from '../../Api';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ export default function MoviesCast() {
   useEffect(() => {
     async function fetchCast() {
       try {
-        const fetchedCast = await getMowiesCast(moviesId);
+        const fetchedCast = await getMoviesCast(moviesId);
         setCasts(fetchedCast);
       } catch (error) {}
     }

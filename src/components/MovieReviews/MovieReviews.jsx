@@ -1,4 +1,4 @@
-import { getMowiesReviews } from '../Api';
+import { getMoviesReviews } from '../../Api';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ export default function MovieReviews() {
   useEffect(() => {
     async function fetchReviews() {
       try {
-        const fetchedReviews = await getMowiesReviews(moviesId);
+        const fetchedReviews = await getMoviesReviews(moviesId);
         setReviews(fetchedReviews);
       } catch (error) {}
     }

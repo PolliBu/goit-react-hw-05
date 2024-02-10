@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { getMowies } from '../Api';
+import { HomeList } from '../components/HomeList/HomeList';
+import { getMovies } from '../Api';
+import { PageTitle } from '../components/PageTitle/PageTitle';
 
 export default function HomePage() {
   const [populars, setPopulars] = useState([]);
@@ -11,7 +12,7 @@ export default function HomePage() {
 
     async function fetchData() {
       try {
-        const fetchedMovies = await getMowies({ abortController: controller });
+        const fetchedMovies = await getMovies({ abortController: controller });
         setPopulars(fetchedMovies.results);
       } catch (error) {
         if (error.code !== 'ERR_CANCELED') {
@@ -27,17 +28,9 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>Trending today</h1>
+      <PageTitle>Trending today</PageTitle>
       {error && <p>OOOOPS! ERROR!</p>}
-      {populars.length > 0 && (
-        <ul>
-          {populars.map(popular => (
-            <li key={popular.id}>
-              <Link to={`/movies/${popular.id}`}>{popular.title}</Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      {populars.length > 0 && <HomeList populars={populars} />}
     </div>
   );
 }
