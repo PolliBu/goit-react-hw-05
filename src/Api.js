@@ -28,3 +28,11 @@ export const getMowiesCast = async mowiesId => {
 
   return response.data.cast;
 };
+
+export const getMowiesReviews = async mowiesId => {
+  const response = await axios.get(
+    `/movie/${mowiesId}/reviews?language=en-US&page=1&api_key=${API_KEY}`,
+  );
+
+  return response.data.results;
+};
