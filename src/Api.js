@@ -20,3 +20,11 @@ export const getMowiesId = async mowiesId => {
 
   return response.data;
 };
+
+export const getMowiesCast = async mowiesId => {
+  const response = await axios.get(
+    `/movie/${mowiesId}/credits?language=en-US&&api_key=${API_KEY}`,
+  );
+
+  return response.data.cast;
+};
