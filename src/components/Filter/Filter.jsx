@@ -11,7 +11,7 @@ export const Filter = ({ value, onChange }) => {
           type="text"
           value={value}
           name="query"
-          onChange={evt => onChange(evt.target.value)}
+          // onChange={evt => onChange(evt.target.value)}
         />
         <button type="submit">Search</button>
       </form>

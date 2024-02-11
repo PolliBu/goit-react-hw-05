@@ -28,14 +28,14 @@ export default function MoviesPage() {
 
   // setParams({ username: form.elements.query.value });
 
-  const filteredMovies = movies.filter(movie =>
-    movie.title.toLowerCase().includes(query.toLowerCase()),
-  );
+  // const filteredMovies = movies.filter(movie =>
+  //   movie.title.toLowerCase().includes(query.toLowerCase()),
+  // );
 
   return (
     <div>
       <Filter value={query} onChange={changeFilter} />
-      {movies.length > 0 && <MovieList items={filteredMovies} />}
+      {movies.length > 0 && <MovieList items={movies} />}
     </div>
   );
 }
