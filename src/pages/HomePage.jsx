@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { HomeList } from '../components/HomeList/HomeList';
+import { MovieList } from '../components/MovieList/MovieList';
 import { getMovies } from '../Api';
 import { PageTitle } from '../components/PageTitle/PageTitle';
 
@@ -30,7 +30,7 @@ export default function HomePage() {
     <div>
       <PageTitle>Trending today</PageTitle>
       {error && <p>OOOOPS! ERROR!</p>}
-      {populars.length > 0 && <HomeList populars={populars} />}
+      {populars.length > 0 && <MovieList items={populars} />}
     </div>
   );
 }

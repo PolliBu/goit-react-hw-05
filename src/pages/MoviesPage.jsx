@@ -1,35 +1,40 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { getSearchMovie } from '../Api';
+import { Filter } from '../components/Filter/Filter';
+import { useSearchParams } from 'react-router-dom';
+import { MovieList } from '../components/MovieList/MovieList';
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
 
+  const [params, setParams] = useSearchParams();
+  const query = params.get('query') ?? '';
+
+  const changeFilter = query => {
+    const nextQuery = query !== '' ? { query } : {};
+    setParams(nextQuery);
+  };
+
   useEffect(() => {
-    const API_KEY = 'aa67eebd48ac511a9341a7e51636c98a';
-
-    const fetchData = async query => {
-      const url = `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`;
-
-      const options = {
-        params: {
-          api_key: API_KEY,
-        },
-      };
-
+    async function fetchData() {
       try {
-        const response = await axios.get(url, options);
-        setMovies(response.data);
-      } catch (error) {
-        console.error("This didn't work.");
-        throw error;
-      }
-    };
+        const fetchedMovies = await getSearchMovie(query);
+        setMovies(fetchedMovies);
+      } catch (error) {}
+    }
     fetchData();
-  }, []);
+  }, [movies]);
+
+  // setParams({ username: form.elements.query.value });
+
+  const filteredMovies = movies.filter(movie =>
+    movie.title.toLowerCase().includes(query.toLowerCase()),
+  );
 
   return (
     <div>
-      <p>Movies</p>
+      <Filter value={query} onChange={changeFilter} />
+      {movies.length > 0 && <MovieList items={filteredMovies} />}
     </div>
   );
 }
