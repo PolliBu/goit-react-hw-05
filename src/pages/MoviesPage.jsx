@@ -16,6 +16,7 @@ export default function MoviesPage() {
   };
 
   useEffect(() => {
+    if (query === '') return;
     async function fetchData() {
       try {
         const fetchedMovies = await getSearchMovie(query);
@@ -23,7 +24,7 @@ export default function MoviesPage() {
       } catch (error) {}
     }
     fetchData();
-  }, [movies]);
+  }, [query]);
 
   // setParams({ username: form.elements.query.value });
 
