@@ -6,7 +6,7 @@ import MovieList from '../components/MovieList/MovieList';
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
-
+  const [error, setError] = useState(false);
   const [params, setParams] = useSearchParams();
   const query = params.get('query') ?? '';
 
@@ -21,7 +21,11 @@ export default function MoviesPage() {
       try {
         const fetchedMovies = await getSearchMovie(query);
         setMovies(fetchedMovies);
-      } catch (error) {}
+      } catch (error) {
+        if (error.code !== 'ERR_CANCELED') {
+          setError(true);
+        }
+      }
     }
     fetchData();
   }, [query]);
@@ -35,6 +39,7 @@ export default function MoviesPage() {
   return (
     <div>
       <Filter value={query} onChange={changeFilter} />
+      {error && <p>OOOOPS! ERROR!</p>}
       {movies.length > 0 && <MovieList items={movies} />}
     </div>
   );

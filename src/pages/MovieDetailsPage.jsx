@@ -9,18 +9,24 @@ export default function MoviesDetailsPage() {
   const location = useLocation();
   const { moviesId } = useParams();
   const [movieData, setMovieData] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const fetchedMovies = await getMoviesId(moviesId);
         setMovieData(fetchedMovies);
-      } catch (error) {}
+      } catch (error) {
+        if (error.code !== 'ERR_CANCELED') {
+          setError(true);
+        }
+      }
     }
     fetchData();
   }, [moviesId]);
   return (
     <div>
+      {error && <p>OOOOPS! ERROR!</p>}
       <PageTitle>MoviesDetailsPage:</PageTitle>
       <Link to={location.state ?? '/movies'}>Back to all movies</Link>
       {movieData && <MoviesDetailsList movieData={movieData} />}
