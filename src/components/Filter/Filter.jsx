@@ -1,4 +1,4 @@
-export const Filter = ({ value, onChange }) => {
+export const Filter = ({ onChange }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
     onChange(evt.target.elements.query.value);
