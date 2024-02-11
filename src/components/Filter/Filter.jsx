@@ -9,7 +9,7 @@ export const Filter = ({ value, onChange }) => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          value={value}
+          // value={value}
           name="query"
           // onChange={evt => onChange(evt.target.value)}
         />
