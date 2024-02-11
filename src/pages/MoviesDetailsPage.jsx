@@ -1,11 +1,12 @@
 import { useLocation, useParams } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { getMoviesId } from '../Api';
 import { Link, Outlet } from 'react-router-dom';
 import MoviesDetailsList from '../components/MoviesDetailsList/MoviesDetailsList';
 import PageTitle from '../components/PageTitle/PageTitle';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
 import BackLink from '../components/BackLink/BackLink';
+import Loader from '../components/Loader/Loader';
 
 export default function MoviesDetailsPage() {
   const location = useLocation();
@@ -49,7 +50,9 @@ export default function MoviesDetailsPage() {
           </li>
         </ul>
       </div>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 }
