@@ -4,6 +4,7 @@ import { getMoviesId } from '../Api';
 import { Link, Outlet } from 'react-router-dom';
 import MoviesDetailsList from '../components/MoviesDetailsList/MoviesDetailsList';
 import PageTitle from '../components/PageTitle/PageTitle';
+import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
 
 export default function MoviesDetailsPage() {
   const location = useLocation();
@@ -26,7 +27,7 @@ export default function MoviesDetailsPage() {
   }, [moviesId]);
   return (
     <div>
-      {error && <p>OOOOPS! ERROR!</p>}
+      {error && <ErrorMessage />}
       <PageTitle>MoviesDetailsPage:</PageTitle>
       <Link to={location.state ?? '/movies'}>Back to all movies</Link>
       {movieData && <MoviesDetailsList movieData={movieData} />}
