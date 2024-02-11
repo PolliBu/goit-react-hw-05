@@ -2,8 +2,8 @@ import { useLocation, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMoviesId } from '../Api';
 import { Link, Outlet } from 'react-router-dom';
-import { MoviesDetailsList } from '../components/MoviesDetailsList/MoviesDetailsList';
-import { PageTitle } from '../components/PageTitle/PageTitle';
+import MoviesDetailsList from '../components/MoviesDetailsList/MoviesDetailsList';
+import PageTitle from '../components/PageTitle/PageTitle';
 
 export default function MoviesDetailsPage() {
   const location = useLocation();

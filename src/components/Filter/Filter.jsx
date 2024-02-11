@@ -1,4 +1,4 @@
-export const Filter = ({ onChange }) => {
+const Filter = ({ onChange }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
     onChange(evt.target.elements.query.value);
@@ -18,6 +18,8 @@ export const Filter = ({ onChange }) => {
     </div>
   );
 };
+
+export default Filter;
 
 // import { HiSearch } from 'react-icons/hi';
 // import css from './SearchBox.module.css';
