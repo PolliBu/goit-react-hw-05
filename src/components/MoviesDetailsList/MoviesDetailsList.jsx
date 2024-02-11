@@ -16,7 +16,7 @@ export const MoviesDetailsList = ({ movieData }) => {
       {movieData.vote_average > 0 && (
         <div>
           <h3>User Score:</h3>
-          <p>{movieData.vote_average.toFixed(2) * 10}%</p>
+          <p>{movieData.vote_average.toFixed(0) * 10}%</p>
         </div>
       )}
       <h3>Overview:</h3>
