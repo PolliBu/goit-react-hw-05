@@ -7,26 +7,29 @@ const MoviesDetailsList = ({ movieData }) => {
     <div className={css.movieCard}>
       <div className={css.moviesPhoto}>
         <img
+          className={css.moviesPhotoItem}
           src={
             movieData.poster_path
               ? `https://image.tmdb.org/t/p/w500/${movieData.poster_path}`
               : defaultImg
           }
-          width={250}
+          width={400}
           alt={movieData.title}
         />
       </div>
       <div className={css.moviesInfo}>
-        <h2>{movieData.title}</h2>
+        <h2 className={css.moviesTitle}>{movieData.title}</h2>
         {movieData.vote_average > 0 && (
           <div>
-            <h3>User Score:</h3>
-            <p>{movieData.vote_average.toFixed(0) * 10}%</p>
+            <h3 className={css.moviesSubtitle}>User Score:</h3>
+            <p className={css.moviesText}>
+              {movieData.vote_average.toFixed(0) * 10}%
+            </p>
           </div>
         )}
-        <h3>Overview:</h3>
-        <p> {movieData.overview}</p>
-        <h3>Genres:</h3>
+        <h3 className={css.moviesSubtitle}>Overview:</h3>
+        <p className={css.moviesText}> {movieData.overview}</p>
+        <h3 className={css.moviesSubtitle}>Genres:</h3>
         {movieData.genres && (
           <p>{movieData.genres.map(genre => genre.name).join(' ')}</p>
         )}

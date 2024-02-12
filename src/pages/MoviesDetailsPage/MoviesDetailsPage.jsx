@@ -3,7 +3,7 @@ import { Suspense, useEffect, useRef, useState } from 'react';
 import { getMoviesId } from '../../Api';
 import { Link, Outlet } from 'react-router-dom';
 import MoviesDetailsList from '../../components/MoviesDetailsList/MoviesDetailsList';
-import PageTitle from '../../components/PageTitle/PageTitle';
+import { GoArrowLeft } from 'react-icons/go';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import BackLink from '../../components/BackLink/BackLink';
 import Loader from '../../components/Loader/Loader';
@@ -34,10 +34,10 @@ export default function MoviesDetailsPage() {
     <div className={css.movies}>
       <div className={css.moviesPhoto}>
         {error && <ErrorMessage />}
-        {/* <PageTitle>MoviesDetailsPage:</PageTitle> */}
         {backLink && (
           <BackLink href={backLinkRef.current ?? '/movies'}>
-            Back to all movies
+            {' '}
+            <GoArrowLeft /> Go back
           </BackLink>
         )}
         {movieData && <MoviesDetailsList movieData={movieData} />}
