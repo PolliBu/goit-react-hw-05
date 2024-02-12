@@ -1,3 +1,5 @@
+import css from './Filter.module.css';
+
 const Filter = ({ onChange }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -5,10 +7,17 @@ const Filter = ({ onChange }) => {
     evt.target.reset();
   };
   return (
-    <div>
+    <div className={css.form}>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="query" />
-        <button type="submit">Search</button>
+        <input
+          className={css.input}
+          type="text"
+          name="query"
+          placeholder="enter the name of the movie"
+        />
+        <button className={css.button} type="submit">
+          Search
+        </button>
       </form>
     </div>
   );

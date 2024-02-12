@@ -2,6 +2,7 @@ import { getMoviesCast } from '../../Api';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import css from './MovieCast.module.css';
 
 export default function MoviesCast() {
   const { moviesId } = useParams();
@@ -26,12 +27,12 @@ export default function MoviesCast() {
     fetchCast();
   }, [moviesId]);
   return (
-    <div>
+    <div className={css.mowieCast}>
       {error && <ErrorMessage />}
       {casts && (
-        <ul>
+        <ul className={css.mowieCastList}>
           {casts.map(cast => (
-            <li key={cast.id}>
+            <li className={css.mowieCastItem} key={cast.id}>
               <img
                 src={
                   cast.profile_path
@@ -39,13 +40,16 @@ export default function MoviesCast() {
                     : defaultImg
                 }
                 width={250}
+                height={375}
                 alt={cast.title}
               />
-              <h4>{cast.name}</h4>
-              <p>
-                <b>Character: </b>
-                {cast.character}
-              </p>
+              <h4 className={css.mowieCastName}>{cast.name}</h4>
+              {cast.character && (
+                <p className={css.mowieCastCharacter}>
+                  <b>Character: </b>
+                  {cast.character}
+                </p>
+              )}
             </li>
           ))}
         </ul>

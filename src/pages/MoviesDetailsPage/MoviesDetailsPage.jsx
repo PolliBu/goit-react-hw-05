@@ -1,13 +1,13 @@
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams, Outlet } from 'react-router-dom';
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { getMoviesId } from '../../Api';
-import { Link, Outlet } from 'react-router-dom';
 import MoviesDetailsList from '../../components/MoviesDetailsList/MoviesDetailsList';
 import { GoArrowLeft } from 'react-icons/go';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import BackLink from '../../components/BackLink/BackLink';
 import Loader from '../../components/Loader/Loader';
 import css from './MoviesDetailsPage.module.css';
+import Info from '../../components/Info/Info';
 
 export default function MoviesDetailsPage() {
   const location = useLocation();
@@ -42,17 +42,7 @@ export default function MoviesDetailsPage() {
         )}
         {movieData && <MoviesDetailsList movieData={movieData} />}
       </div>
-      <div className={css.moviesInfo}>
-        <h3 className={css.moviesInfoTitle}>Additional information</h3>
-        <ul>
-          <li>
-            <Link to="cast">Cast</Link>
-          </li>
-          <li>
-            <Link to="reviews">Reviews</Link>
-          </li>
-        </ul>
-      </div>
+      <Info />
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
