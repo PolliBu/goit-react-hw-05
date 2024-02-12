@@ -36,12 +36,6 @@ export default function MoviesPage() {
     fetchData();
   }, [query]);
 
-  // setParams({ username: form.elements.query.value });
-
-  // const filteredMovies = movies.filter(movie =>
-  //   movie.title.toLowerCase().includes(query.toLowerCase()),
-  // );
-
   return (
     <div>
       <Filter value={query} onChange={changeFilter} />
