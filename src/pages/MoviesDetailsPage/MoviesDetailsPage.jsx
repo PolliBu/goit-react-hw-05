@@ -43,7 +43,7 @@ export default function MoviesDetailsPage() {
         {movieData && <MoviesDetailsList movieData={movieData} />}
       </div>
       <div className={css.moviesInfo}>
-        <h3>Additional information</h3>
+        <h3 className={css.moviesInfoTitle}>Additional information</h3>
         <ul>
           <li>
             <Link to="cast">Cast</Link>
