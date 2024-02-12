@@ -1,12 +1,13 @@
 import { useLocation, useParams } from 'react-router-dom';
 import { Suspense, useEffect, useRef, useState } from 'react';
-import { getMoviesId } from '../Api';
+import { getMoviesId } from '../../Api';
 import { Link, Outlet } from 'react-router-dom';
-import MoviesDetailsList from '../components/MoviesDetailsList/MoviesDetailsList';
-import PageTitle from '../components/PageTitle/PageTitle';
-import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
-import BackLink from '../components/BackLink/BackLink';
-import Loader from '../components/Loader/Loader';
+import MoviesDetailsList from '../../components/MoviesDetailsList/MoviesDetailsList';
+import PageTitle from '../../components/PageTitle/PageTitle';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import BackLink from '../../components/BackLink/BackLink';
+import Loader from '../../components/Loader/Loader';
+import css from './MoviesDetailsPage.module.css';
 
 export default function MoviesDetailsPage() {
   const location = useLocation();
@@ -30,16 +31,18 @@ export default function MoviesDetailsPage() {
     fetchData();
   }, [moviesId]);
   return (
-    <div>
-      {error && <ErrorMessage />}
-      <PageTitle>MoviesDetailsPage:</PageTitle>
-      {backLink && (
-        <BackLink href={backLinkRef.current ?? '/movies'}>
-          Back to all movies
-        </BackLink>
-      )}
-      {movieData && <MoviesDetailsList movieData={movieData} />}
-      <div>
+    <div className={css.movies}>
+      <div className={css.moviesPhoto}>
+        {error && <ErrorMessage />}
+        {/* <PageTitle>MoviesDetailsPage:</PageTitle> */}
+        {backLink && (
+          <BackLink href={backLinkRef.current ?? '/movies'}>
+            Back to all movies
+          </BackLink>
+        )}
+        {movieData && <MoviesDetailsList movieData={movieData} />}
+      </div>
+      <div className={css.moviesInfo}>
         <h3>Additional information</h3>
         <ul>
           <li>

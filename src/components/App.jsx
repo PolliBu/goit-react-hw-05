@@ -4,11 +4,11 @@ import Navbar from './Navbar/Navbar';
 // import MoviesCast from './MovieCast/MovieCast';
 // import MovieReviews from './MovieReviews/MovieReviews';
 import Loader from './Loader/Loader';
-import MoviesDetailsPage from '../pages/MoviesDetailsPage';
+import MoviesDetailsPage from '../pages/MoviesDetailsPage/MoviesDetailsPage';
 
-const HomePage = lazy(() => import('../pages/HomePage'));
-const MoviesPage = lazy(() => import('../pages/MoviesPage'));
-const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const MoviesPage = lazy(() => import('../pages/MoviesPage/MoviesPage'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 const MoviesCast = lazy(() => import('./MovieCast/MovieCast'));
 const MovieReviews = lazy(() => import('./MovieReviews/MovieReviews'));
 

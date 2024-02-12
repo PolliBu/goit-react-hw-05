@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { getSearchMovie } from '../Api';
-import Filter from '../components/Filter/Filter';
+import { getSearchMovie } from '../../Api';
+import Filter from '../../components/Filter/Filter';
 import { useSearchParams, useParams } from 'react-router-dom';
-import MovieList from '../components/MovieList/MovieList';
-import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
+import MovieList from '../../components/MovieList/MovieList';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);

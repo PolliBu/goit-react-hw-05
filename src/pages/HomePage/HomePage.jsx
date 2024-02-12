@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import MovieList from '../components/MovieList/MovieList';
-import { getMovies } from '../Api';
-import PageTitle from '../components/PageTitle/PageTitle';
-import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
+import MovieList from '../../components/MovieList/MovieList';
+import { getMovies } from '../../Api';
+import PageTitle from '../../components/PageTitle/PageTitle';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
 export default function HomePage() {
   const [populars, setPopulars] = useState([]);
