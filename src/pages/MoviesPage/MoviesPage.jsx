@@ -28,9 +28,7 @@ export default function MoviesPage() {
         const fetchedMovies = await getSearchMovie(query);
         setMovies(fetchedMovies);
       } catch (error) {
-        if (error.code !== 'ERR_CANCELED') {
-          setError(true);
-        }
+        setError(true);
       }
     }
     fetchData();
