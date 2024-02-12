@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getSearchMovie } from '../../Api';
 import Filter from '../../components/Filter/Filter';
-import { useSearchParams, useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import MovieList from '../../components/MovieList/MovieList';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
@@ -10,11 +10,11 @@ export default function MoviesPage() {
   const [error, setError] = useState(false);
   const [params, setParams] = useSearchParams();
   const query = params.get('query') ?? '';
-  const { movieId } = useParams();
+  // const { movieId } = useParams();
 
-  useEffect(() => {
-    if (!movieId) return;
-  }, [movieId]);
+  // useEffect(() => {
+  //   if (!movieId) return;
+  // }, [movieId]);
 
   const changeFilter = query => {
     const nextQuery = query !== '' ? { query } : {};
