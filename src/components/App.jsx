@@ -1,8 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
-// import MoviesCast from './MovieCast/MovieCast';
-// import MovieReviews from './MovieReviews/MovieReviews';
 import Loader from './Loader/Loader';
 import MoviesDetailsPage from '../pages/MoviesDetailsPage/MoviesDetailsPage';
 
