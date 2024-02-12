@@ -16,7 +16,9 @@ export default function MovieReviews() {
         const fetchedReviews = await getMoviesReviews(moviesId);
         setReviews(fetchedReviews);
       } catch (error) {
-        setError(true);
+        if (error.code !== 'ERR_CANCELED') {
+          setError(true);
+        }
       }
     }
     fetchReviews();

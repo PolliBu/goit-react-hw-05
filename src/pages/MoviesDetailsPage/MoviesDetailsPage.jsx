@@ -23,7 +23,9 @@ export default function MoviesDetailsPage() {
         const fetchedMovies = await getMoviesId(moviesId);
         setMovieData(fetchedMovies);
       } catch (error) {
-        setError(true);
+        if (error.code !== 'ERR_CANCELED') {
+          setError(true);
+        }
       }
     }
     fetchData();
