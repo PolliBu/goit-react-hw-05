@@ -1,0 +1,14 @@
+.img {
+  /* position: relative; */
+}
+
+.item {
+  padding: 10px 20px;
+  background-image: linear-gradient(
+      rgba(133, 133, 142, 0.3),
+      rgba(239, 239, 198, 0.3)
+    ),
+    url(https://blog.ipleaders.in/wp-content/uploads/2020/10/film.jpg);
+
+  background-size: cover;
+}

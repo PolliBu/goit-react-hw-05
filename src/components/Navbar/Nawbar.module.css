@@ -1,17 +1,20 @@
 .nav {
   display: flex;
   gap: 4px;
+  padding: 5px 10px;
 }
 
 .link {
-  color: black;
+  color: white;
+  font-size: 25px;
+  font-weight: 700;
   text-decoration: none;
-}
-
-.link:hover {
-  text-decoration: underline;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 5px;
 }
 
 .active {
-  color: orange;
+  color: black;
+  text-decoration: underline;
 }

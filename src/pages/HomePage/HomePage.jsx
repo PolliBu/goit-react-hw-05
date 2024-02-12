@@ -29,7 +29,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <PageTitle>Trending today</PageTitle>
+      <PageTitle />
       {error && <ErrorMessage />}
       {populars.length > 0 && <MovieList items={populars} />}
     </div>

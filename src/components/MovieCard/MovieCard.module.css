@@ -1,0 +1,13 @@
+.itemList {
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.itemList:hover,
+.itemList:focus {
+  color: black;
+  scale: 1;
+}
