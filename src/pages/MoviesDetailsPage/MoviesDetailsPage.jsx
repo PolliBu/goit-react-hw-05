@@ -11,8 +11,7 @@ import Info from '../../components/Info/Info';
 
 export default function MoviesDetailsPage() {
   const location = useLocation();
-  const backLinkRef = useRef(location.state);
-  const backLink = location.state?.from ?? '/';
+  const backLinkRef = useRef(location.state?.from ?? '/');
   const { moviesId } = useParams();
   const [movieData, setMovieData] = useState(null);
   const [error, setError] = useState(false);
@@ -23,9 +22,7 @@ export default function MoviesDetailsPage() {
         const fetchedMovies = await getMoviesId(moviesId);
         setMovieData(fetchedMovies);
       } catch (error) {
-        if (error.code !== 'ERR_CANCELED') {
-          setError(true);
-        }
+        setError(true);
       }
     }
     fetchData();
@@ -34,7 +31,7 @@ export default function MoviesDetailsPage() {
     <div className={css.movies}>
       <div className={css.moviesPhoto}>
         {error && <ErrorMessage />}
-        {backLink && (
+        {backLinkRef && (
           <BackLink href={backLinkRef.current ?? '/movies'}>
             {' '}
             <GoArrowLeft /> Go back

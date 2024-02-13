@@ -19,9 +19,7 @@ export default function MoviesCast() {
         const fetchedCast = await getMoviesCast(moviesId);
         setCasts(fetchedCast);
       } catch (error) {
-        if (error.code !== 'ERR_CANCELED') {
-          setError(true);
-        }
+        setError(true);
       }
     }
     fetchCast();
