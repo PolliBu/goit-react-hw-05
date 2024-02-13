@@ -27,11 +27,17 @@ const MoviesDetailsList = ({ movieData }) => {
             </p>
           </div>
         )}
-        <h3 className={css.moviesSubtitle}>Overview:</h3>
-        <p className={css.moviesText}> {movieData.overview}</p>
-        <h3 className={css.moviesSubtitle}>Genres:</h3>
+        {movieData.overview && (
+          <div>
+            <h3 className={css.moviesSubtitle}>Overview:</h3>
+            <p className={css.moviesText}> {movieData.overview}</p>
+          </div>
+        )}
         {movieData.genres && (
-          <p>{movieData.genres.map(genre => genre.name).join(' ')}</p>
+          <div>
+            <h3 className={css.moviesSubtitle}>Genres:</h3>
+            <p>{movieData.genres.map(genre => genre.name).join(' ')}</p>
+          </div>
         )}
       </div>
     </div>
