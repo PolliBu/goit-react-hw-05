@@ -3,11 +3,26 @@
 }
 
 .input {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
-  margin-right: 20px;
-  width: 300px;
+  width: 260px;
   border: 2mm ridge rgba(220, 155, 50, 0.6);
+}
+
+@media screen and (min-width: 375px) {
+  .input {
+    margin-right: 20px;
+    width: 300px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .input {
+    margin-right: 20px;
+    width: 300px;
+    font-size: 20px;
+  }
 }
 
 .button {
@@ -20,4 +35,10 @@
 .button:focus {
   background-color: orange;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .button {
+    margin-top: 20px;
+  }
 }

@@ -1,22 +1,63 @@
-.movieCard {
-  display: flex;
-  margin-top: 10px;
+@media screen and (min-width: 768px) {
+  .movieCard {
+    display: flex;
+    margin-top: 10px;
+  }
 }
 
 .moviesPhotoItem {
-  margin-right: 15px;
   padding: 10px;
   border-radius: 25px;
 }
 
-.moviesInfo {
-  padding: 10px;
-  width: 500px;
-  font-size: 20px;
-  font-weight: 600;
-  padding: 10px;
+/* @media screen and (min-width: 768px) {
+  .moviesPhotoItem {
+    margin-right: 10px;
+  }
+} */
+
+.moviesPhotoItem {
+  width: 280px;
 }
 
+@media screen and (min-width: 375px) {
+  .moviesPhotoItem {
+    width: 335px;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .moviesPhotoItem {
+    width: 385px;
+  }
+}
+
+.moviesInfo {
+  padding: 10px;
+  /* width: 500px; */
+  font-size: 20px;
+  /* font-weight: 500; */
+  padding: 10px;
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  .moviesInfo {
+    width: 325px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .moviesInfo {
+    width: 580px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .moviesInfo {
+    width: 900px;
+  }
+}
 .moviesTitle {
   font-size: 30px;
   text-shadow: 1px 1px 2px orange, 0 0 1em brown, 0 0 0.2em rgb(38, 38, 37);

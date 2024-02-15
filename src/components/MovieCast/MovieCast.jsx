@@ -32,6 +32,7 @@ export default function MoviesCast() {
           {casts.map(cast => (
             <li className={css.mowieCastItem} key={cast.id}>
               <img
+                className={css.mowieImg}
                 src={
                   cast.profile_path
                     ? `https://image.tmdb.org/t/p/w500/${cast.profile_path}`
