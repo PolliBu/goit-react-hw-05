@@ -30,13 +30,8 @@ img {
 
 .mowieCastItem {
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  margin-bottom: 20px;
-}
-
-@media screen and (min-width: 768px) {
-  .mowieCastItem {
-    width: 250px;
-  }
+  width: 250px;
+  margin: 0 auto 20px;
 }
 
 .mowieCastCharacter {
