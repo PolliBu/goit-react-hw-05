@@ -5,7 +5,11 @@ import css from './MovieCard.module.css';
 const MovieCard = ({ item }) => {
   const location = useLocation();
   return (
-    <Link className={css.itemList} to={`/movies/${item.id}`} state={location}>
+    <Link
+      className={css.itemList}
+      to={`/movies/${item.id}`}
+      state={{ from: location }}
+    >
       {item.title}
     </Link>
   );

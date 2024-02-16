@@ -11,7 +11,7 @@ import Info from '../../components/Info/Info';
 
 export default function MoviesDetailsPage() {
   const location = useLocation();
-  const backLinkRef = useRef(location.state);
+  const backLinkRef = useRef(location.state?.from ?? '/');
   const { moviesId } = useParams();
   const [movieData, setMovieData] = useState(null);
   const [error, setError] = useState(false);
