@@ -11,7 +11,7 @@ import Info from '../../components/Info/Info';
 
 export default function MoviesDetailsPage() {
   const location = useLocation();
-  const backLinkRef = useRef(location.state?.from ?? '/');
+  const backLinkRef = useRef(location.state);
   const { moviesId } = useParams();
   const [movieData, setMovieData] = useState(null);
   const [error, setError] = useState(false);
@@ -33,7 +33,6 @@ export default function MoviesDetailsPage() {
         {error && <ErrorMessage />}
         {backLinkRef && (
           <BackLink href={backLinkRef.current ?? '/movies'}>
-            {' '}
             <GoArrowLeft /> Go back
           </BackLink>
         )}
